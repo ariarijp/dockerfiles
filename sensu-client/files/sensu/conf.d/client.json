@@ -1,0 +1,7 @@
+{
+    "client": {
+        "name": "@NAME@",
+        "address": "@ADDRESS@",
+        "subscriptions": [ "all" ]
+    }
+}
