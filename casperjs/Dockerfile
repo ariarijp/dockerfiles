@@ -5,5 +5,6 @@ MAINTAINER Takuya Arita <takuya.arita@gmail.com>
 RUN npm install -g phantomjs casperjs
 
 ADD *.js /tmp/
+ADD *.coffee /tmp/
 
 ENTRYPOINT ["casperjs"]
