@@ -1,5 +1,5 @@
 ## Usage
 
 ```Shell
-docker run -it --rm ariarijp/casperjs sample.js
+docker run -it --rm ariarijp/casperjs /tmp/sample.js
 ```
