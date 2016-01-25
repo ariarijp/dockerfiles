@@ -1,0 +1,9 @@
+server {
+  access_log /dev/stdout;
+  listen 8080 default_server;
+  server_name  _;
+  resolver 8.8.8.8;
+  location / {
+    proxy_pass $scheme://$http_host$request_uri;
+  }
+}
