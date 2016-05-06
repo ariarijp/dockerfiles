@@ -1,4 +1,4 @@
-# ElasticMQ Docker Image
+# ariarijp/elasticmq
 
 Docker image based on Ubuntu trusty with the latest [ElasticMQ](https://github.com/adamw/elasticmq).
 
@@ -29,11 +29,3 @@ $ source .venv/bin/activate
 $ pip install -r requirements.txt
 $ python tests.py
 ```
-
-## License
-
-MIT
-
-## Author
-
-[@ariarijp](https://twitter.com/ariarijp)

@@ -1,4 +1,4 @@
-# Project Name
+# ariarijp/sensu-client
 
 Dockerfile for Sensu Client.
 

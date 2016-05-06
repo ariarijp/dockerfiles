@@ -1,4 +1,4 @@
-# Project Name
+# ariarijp/bonnie
 
 Dockerfile for bonnie++.
 
