@@ -14,9 +14,15 @@ var controller = Botkit.slackbot({
     debug: debug
 })
 
-controller.spawn({
+var bot = controller.spawn({
     token: token
 }).startRTM()
+
+bot.api.team.info({}, function(err, res) {
+    controller.storage.teams.save({
+        id: res.team.id
+    }, function(err) {});
+});
 
 controller.setupWebserver(process.env.PORT, function(err, webserver) {
     if (err) {
@@ -31,12 +37,12 @@ controller.hears('hello', ['direct_message', 'direct_mention', 'mention'], funct
     bot.reply(message, 'hello')
 })
 
-controller.on('slash_command', function (bot, message) {
-  switch (message.command) {
-    case '/hello':
-      bot.replyPrivate(message, 'hello')
-      break
-    default:
-      break;
-  }
+controller.on('slash_command', function(bot, message) {
+    switch (message.command) {
+        case '/hello':
+            bot.replyPrivate(message, 'hello')
+            break
+        default:
+            break;
+    }
 })
