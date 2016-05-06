@@ -9,8 +9,6 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/kabukky/httpscerts"
-
 	fbmsg "github.com/stanaka/facebook-messenger"
 )
 
@@ -56,24 +54,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	debug = true
-
-	err := httpscerts.Check("cert.pem", "key.pem")
-	if err != nil {
-		err = httpscerts.Generate("cert.pem", "key.pem", os.Getenv("ENDPOINT_FQDN"))
-		if err != nil {
-			log.Fatal("Error: Couldn't create https certs.")
-		}
-	}
-
 	fb = &fbmsg.FacebookMessenger{
 		Token: os.Getenv("FB_TOKEN"),
 	}
 
 	http.HandleFunc("/fbbot/callback", callbackHandler)
 
-	addr := os.Getenv("ENDPOINT_FQDN") + ":443"
-	err = http.ListenAndServeTLS(addr, "cert.pem", "key.pem", nil)
-	if err != nil {
-		log.Fatal("ListenAndServeTLS: ", err)
-	}
+	port := os.Getenv("PORT")
+	addr := fmt.Sprintf(":%s", port)
+	http.ListenAndServe(addr, nil)
 }

@@ -2,7 +2,7 @@ FROM golang:1.6.2-alpine
 
 ENV FB_VERIFY_TOKEN fbverifytoken
 ENV FB_TOKEN fbtoken
-ENV PORT 8080
+ENV PORT 80
 
 RUN apk update && apk upgrade && apk add git
 
