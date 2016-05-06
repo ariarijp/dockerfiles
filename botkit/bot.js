@@ -11,6 +11,7 @@ if (process.env.DEBUG) {
 }
 
 var controller = Botkit.slackbot({
+    json_file_store: 'json_database',
     debug: debug
 })
 
