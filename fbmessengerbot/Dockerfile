@@ -5,8 +5,11 @@ ENV FB_TOKEN fbtoken
 ENV PORT 8080
 
 RUN apk update && apk upgrade && apk add git
-RUN go get github.com/stanaka/facebook-messenger
-RUN go build -o /go/bin/echo /go/src/github.com/stanaka/facebook-messenger/examples/echo.go
-CMD /go/bin/echo
+
+RUN mkdir /go/src/fbmessenger
+COPY main.go /go/src/fbmessenger/
+RUN cd /go/src/fbmessenger && go get
+RUN go build -o /go/bin/fbmessenger /go/src/fbmessenger/main.go
+CMD /go/bin/fbmessenger
 
 EXPOSE ${PORT}
