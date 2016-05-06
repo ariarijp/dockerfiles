@@ -9,4 +9,4 @@ RUN go get github.com/stanaka/facebook-messenger
 RUN go build -o /go/bin/echo /go/src/github.com/stanaka/facebook-messenger/examples/echo.go
 CMD /go/bin/echo
 
-EXPOSE 8080
+EXPOSE ${PORT}
