@@ -1,0 +1,27 @@
+_export:
+  rb:
+    require: 'tasks/my_workflow'
+  my_value: 0
+
++stepA:
+  _parallel: true
+
+  loop>: 3
+  _do:
+    _parallel: true
+    rb>: MyWorkflow.step1
+
++step2:
+  rb>: MyWorkflow.step2
+
++step3:
+  sh>: echo ${foo}
+
++step4:
+  rb>: MyWorkflow.step4
+
++step5:
+  loop>: ${bar.length}
+  _do:
+    +step:
+      sh>: echo ${bar[i]}
