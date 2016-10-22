@@ -19,4 +19,8 @@ cd cphalcon/build && \
 
 RUN echo "extension=phalcon.so" > /etc/php/5.6/cli/conf.d/99-phalcon.ini
 
+RUN \
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
 CMD ["/bin/bash"]
