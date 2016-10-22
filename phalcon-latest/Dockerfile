@@ -8,7 +8,16 @@ apt-get update && \
 apt-get install -y software-properties-common git && \
 add-apt-repository -y ppa:ondrej/php && \
 apt-get update && \
-apt-get install -y php5.6-cli php5.6-dev php5.6-mysql php5.6-curl php5.6-zip gcc libpcre3-dev && \
+apt-get install -y \
+  php5.6-cli \
+  php5.6-dev \
+  php5.6-mysql \
+  php5.6-curl \
+  php5.6-zip \
+  php5.6-xml \
+  php5.6-mbstring \
+  gcc \
+  libpcre3-dev && \
 git clone --depth=1 git://github.com/phalcon/cphalcon.git && \
 cd cphalcon/build && \
 ./install && \
