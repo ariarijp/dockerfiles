@@ -8,4 +8,4 @@ RUN sed -i s/archive.ubuntu.com/ftp.jaist.ac.jp/ /etc/apt/sources.list && \
     mv composer.phar /usr/local/bin/composer && \
     composer global require squizlabs/php_codesniffer && \
     git clone https://github.com/wimg/PHPCompatibility.git ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
-ENV PATH $PATH:~/.composer/vendor/bin
+ENV PATH $PATH:/root/.composer/vendor/bin
